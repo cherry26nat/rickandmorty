@@ -1,72 +1,46 @@
-fetch("https://rickandmortyapi.com/api/character", {
-	method: "GET",
-})
-	.then((response) => response.json())
-	.then(function (json) {
-		var wrapperCard = document.querySelector(".wrapper-card");
-		json.results.map(function (results) {
-			console.log(json);
-			wrapperCard.innerHTML += `<section>
-			<div class="card">
-				<div class="image">
-					<img src=${results.image} alt="" />
-				</div>
-				<div class="content">
-					<div class="name">
-						<h1>${results.name}</h1>
-					</div>
-					<div class="status">
-						<span>${results.status}</span>
-					</div>
-					<div class="last-location">
-						<span>last known location:</span>
-						<span>${results.location}</span>
-					</div>
-					<div class="first-seen">
-						<span>first seen in:</span>
-						<span>who knows</span>
-					</div>
-				</div>
-			</div>
-		</section>`;
-		});
-	});
+let wrapperCard = document.querySelector(".wrapper-card");
 
-/* const charactersWrapper = document.querySelector(".wrapper-card");
+const apiUrl = "https://rickandmortyapi.com/api";
 
-const fetchCharacter = async (url) => {
+const fetchCharacters = async (url) => {
 	const response = await fetch(url);
 	const characters = await response.json();
-	console.log(characters);
 
-	filterCharacter(characters).map(
-		(character, index) =>
-			(charactersWrapper.innerHTML += `<section key=${index}>
+	mapCharacters(characters.results);
+};
+
+const mapCharacters = (characters) => {
+	characters.map((character) => {
+		console.log(character);
+		wrapperCard.innerHTML += `<section>
 			<div class="card">
 				<div class="image">
-					<img src="https://rickandmortyapi.com/api/character/avatar/28.jpeg" alt="" />
+					<img src=${character.image} alt="" />
 				</div>
 				<div class="content">
 					<div class="name">
 						<h1>${character.name}</h1>
 					</div>
 					<div class="status">
-						<span>status</span>
+						<span>${character.status}</span>
 					</div>
 					<div class="last-location">
 						<span>last known location:</span>
-						<span>who knows</span>
+						<span>${character.location.name}</span>
 					</div>
 					<div class="first-seen">
 						<span>first seen in:</span>
-						<span>who knows</span>
+						<span>${character.species}</span>
+					</div>
+					<div class="first-seen">
+						
+						<a href="episodes.html?id=${character.id}">Episodios</a>
 					</div>
 				</div>
 			</div>
-		</section>`)
-	);
+		</section>
+		`;
+	});
 };
 
-const filterCharacter = (characters) => characters.filter((character) => character.id);
-
-fetchCharacter("https://jsonplaceholder.typicode.com/users");*/
+fetchCharacters(`${apiUrl}/character`);
