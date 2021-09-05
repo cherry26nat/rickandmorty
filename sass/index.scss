@@ -23,23 +23,50 @@ body {
 			font-size: 60px;
 		}
 	}
+
+	.btn {
+		display: flex;
+		justify-content: center;
+
+		#btn-show-characters {
+			border: none;
+			margin: 3em;
+			padding: 1em;
+			display: flex;
+			border-radius: 1em;
+			color: #24282f;
+			font-size: 1.2em;
+			font-weight: bold;
+			background: white;
+			cursor: pointer;
+			&:hover {
+				transform: scale(1.1);
+				transition: transform 0.3s ease-in-out;
+			}
+		}
+	}
+
 	.wrapper-card {
-		padding: 2em;
+		padding: 2.5em;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 3em;
 		justify-content: center;
 		@media (max-width: 850px) {
 			grid-template-columns: 1fr;
-			grid-gap: 1em;
+			grid-gap: 1.5em;
 		}
 		.card {
 			display: flex;
 			overflow: hidden;
 			background: #3c3e44;
 			border-radius: 1em;
+			&:hover {
+				transform: scale(1.1);
+				transition: transform 0.3s ease-in-out;
+			}
 			.image {
-				width: 60%;
+				width: 80%;
 				height: auto;
 				img {
 					object-fit: cover;
@@ -53,24 +80,48 @@ body {
 				flex-direction: column;
 				height: auto;
 				width: 100%;
-				align-items: center;
+				text-align: center;
 				justify-content: space-around;
+			}
+			.status {
+				display: flex;
+				flex-direction: column;
+				margin: 0.5em;
+				a {
+					text-decoration: none;
+					color: #fff;
+					padding: 0.5em 1em;
+				}
+			}
+			.name {
+				h1 {
+					font-size: 1.5em;
+					margin: 0;
+				}
+			}
 
-				.name {
-					h1 {
-						margin: 0;
+			.last-location {
+				display: flex;
+				flex-direction: column;
+			}
+			.first-seen {
+				display: flex;
+				flex-direction: column;
+			}
+			.species {
+				display: flex;
+				flex-direction: column;
+				margin: 0.5em;
+				a {
+					text-decoration: none;
+					color: #24282f;
+					padding: 0.5em 1em;
+					background: #ffff;
+					border-radius: 1em;
+					&:hover {
+						color: #ffff;
+						background: #24282f;
 					}
-				}
-
-				.last-location {
-					display: flex;
-					text-align: center;
-					flex-direction: column;
-				}
-				.first-seen {
-					display: flex;
-					text-align: center;
-					flex-direction: column;
 				}
 			}
 		}
