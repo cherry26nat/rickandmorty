@@ -22,20 +22,10 @@ const mapCharacters = (characters) => {
 				<div class="content">
 					<div class="name">
 						<h1>${character.name}</h1>
-					</div>
-					<div class="status">
-						<span>${character.status}</span>
-					</div>
-					<div class="last-location">
-						<span>Last known location:</span>
-						<span>${character.location.name}</span>
-					</div>
-					<div class="first-seen">
-						<span>Species:</span>
-						<span>${character.species}</span>
-					</div>
+									
+					
 					<div class="species">
-						<span><a href="episodes.html?id=${character.id}" target="_blank">Episodios</a></span>
+						<span><a href="episodes.html?id=${character.id}" target="_blank">Ver más</a></span>
 					</div>
 				</div>
 			</div>
