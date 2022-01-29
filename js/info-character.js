@@ -1,6 +1,6 @@
 let nameCharacter = document.querySelector(".title");
 
-let wrapperCard = document.querySelector(".wrapper-card");
+let wrapperCard = document.querySelector(".wrapper-card-detail");
 
 const params = new URLSearchParams(location.search);
 const idCharacter = params.get("id");
@@ -9,17 +9,17 @@ console.log(idCharacter);
 const apiUrl = "https://rickandmortyapi.com/api";
 
 const fetchInfo = async (url) => {
-	const response = await fetch(url);
-	const info = await response.json();
+  const response = await fetch(url);
+  const info = await response.json();
 
-	//console.log(info);
+  //console.log(info);
 
-	mapInfo(info);
+  mapInfo(info);
 };
 
 const mapInfo = (info) => {
-	console.log(info);
-	wrapperCard.innerHTML += `<section>
+  console.log(info);
+  wrapperCard.innerHTML += `
 			<div class="card">
 				<div class="image">
 					<img src=${info.image} alt="" />
@@ -49,7 +49,6 @@ const mapInfo = (info) => {
 					
 				</div>
 			</div>
-		</section>
 		`;
 };
 
